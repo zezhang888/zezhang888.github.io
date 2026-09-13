@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ze Zhang is a Ph.D. candidate in Management and Strategy at The University of Hong Kong, researching nonmarket strategy, informal institutions, sustainability, and emerging technologies.">
+  <meta name="theme-color" content="#132820">
+  <title>Ze Zhang | Management &amp; Strategy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132820'/%3E%3Cpath d='M10 48 27 20l8 13 6-9 13 24H10Z' fill='none' stroke='%23f4efe4' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #17211d;
+      --ink-soft: #526059;
+      --forest: #18372b;
+      --forest-light: #2e5a47;
+      --paper: #f4f1ea;
+      --surface: #fffdf8;
+      --line: rgba(23, 33, 29, 0.13);
+      --gold: #b58a4a;
+      --shadow: 0 24px 70px rgba(25, 39, 32, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 17px;
+      --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Libre Baskerville", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 7% 10%, rgba(181, 138, 74, 0.09), transparent 28rem),
+        var(--paper);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    a {
+      color: var(--forest-light);
+      text-decoration-color: rgba(46, 90, 71, 0.32);
+      text-underline-offset: 0.2em;
+      transition: color 180ms ease, text-decoration-color 180ms ease;
+    }
+
+    a:hover {
+      color: var(--gold);
+      text-decoration-color: currentColor;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(181, 138, 74, 0.48);
+      outline-offset: 4px;
+    }
+
+    .site-header {
+      position: relative;
+      min-height: 390px;
+      isolation: isolate;
+      color: white;
+      background: var(--forest);
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(10, 27, 21, 0.91) 0%, rgba(10, 27, 21, 0.68) 46%, rgba(10, 27, 21, 0.35) 100%),
+        url("./webhead.jpg") center 46% / cover no-repeat;
+      transform: scale(1.01);
+    }
+
+    .site-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(135deg, transparent 55%, rgba(181, 138, 74, 0.18)),
+        linear-gradient(to bottom, transparent 75%, rgba(5, 15, 11, 0.45));
+    }
+
+    .header-inner {
+      width: min(1180px, calc(100% - 48px));
+      min-height: 390px;
+      margin: 0 auto;
+      padding: 38px 0 55px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      padding-top: 72px;
+    }
+
+    .hero-copy h1 {
+      margin: 0 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 8vw, 6.7rem);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      text-wrap: balance;
+    }
+
+    .hero-copy p {
+      max-width: 650px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2vw, 1.28rem);
+      line-height: 1.65;
+    }
+
+    .layout {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 48px));
+      margin: -34px auto 0;
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .profile-card,
+    .content-shell {
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      background: rgba(255, 253, 248, 0.96);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .profile-card {
+      position: sticky;
+      top: 24px;
+      border-radius: var(--radius-lg);
+      padding: 20px;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 4.6;
+      border-radius: calc(var(--radius-lg) - 9px);
+      background: linear-gradient(145deg, #29483b, #10231b);
+    }
+
+    .portrait-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14);
+      border-radius: inherit;
+    }
+
+    .portrait {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .portrait-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: var(--serif);
+      font-size: 4.2rem;
+      letter-spacing: -0.06em;
+    }
+
+    .profile-copy { padding: 22px 6px 5px; }
+
+    .profile-copy h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      line-height: 1.3;
+      font-weight: 400;
+    }
+
+    .role {
+      margin: 7px 0 0;
+      color: var(--forest-light);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .institution {
+      margin: 7px 0 0;
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 2px;
+      margin: 20px 0 0;
+      padding: 18px 0 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 38px;
+      color: var(--ink-soft);
+      font-size: 0.83rem;
+      text-decoration: none;
+    }
+
+    .contact-list a::after {
+      content: "↗";
+      color: var(--gold);
+      font-size: 0.95rem;
+      transition: transform 180ms ease;
+    }
+
+    .contact-list a:hover { color: var(--ink); }
+    .contact-list a:hover::after { transform: translate(2px, -2px); }
+
+    .content-shell {
+      min-height: 650px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .tab-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      padding: 15px 22px;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 253, 248, 0.93);
+      backdrop-filter: blur(16px);
+      scrollbar-width: none;
+    }
+
+    .tab-bar::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      position: relative;
+      flex: 0 0 auto;
+      min-height: 42px;
+      padding: 9px 15px;
+      border: 0;
+      border-radius: 999px;
+      color: #66716c;
+      background: transparent;
+      font: 600 0.83rem/1 var(--sans);
+      letter-spacing: 0.025em;
+      cursor: pointer;
+      transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--ink);
+      background: rgba(24, 55, 43, 0.06);
+    }
+
+    .tab-btn.active {
+      color: white;
+      background: var(--forest);
+      box-shadow: 0 7px 18px rgba(24, 55, 43, 0.17);
+    }
+
+    .tab-btn:active { transform: translateY(1px); }
+
+    .tab-body { padding: clamp(30px, 5vw, 58px); }
+
+    .tab-content {
+      display: none;
+      animation: reveal 340ms ease both;
+    }
+
+    .tab-content.active { display: block; }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .tab-content h2,
+    .tab-content h3,
+    .tab-content h4 {
+      font-family: var(--serif);
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    .tab-content h2 {
+      max-width: 720px;
+      margin: 0 0 24px;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.18;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .tab-content h3 {
+      margin: 50px 0 20px;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    .tab-content p {
+      max-width: 760px;
+      margin: 0 0 18px;
+      color: #46534d;
+    }
+
+    .lead {
+      font-family: var(--serif);
+      font-size: clamp(1.04rem, 2vw, 1.18rem);
+      line-height: 1.9;
+    }
+
+    .rule {
+      width: 56px;
+      height: 2px;
+      margin: 30px 0;
+      border: 0;
+      background: var(--gold);
+    }
+
+    .news-list { border-top: 1px solid var(--line); }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 104px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .news-item .date {
+      color: var(--forest-light);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .news-item p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    .cv-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 25px;
+      align-items: center;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(24, 55, 43, 0.055), rgba(181, 138, 74, 0.07));
+    }
+
+    .cv-card h3 { margin: 0 0 7px; }
+    .cv-card p { margin: 0; font-size: 0.92rem; }
+
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      color: white;
+      background: var(--forest);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button-link:hover {
+      color: white;
+      background: var(--forest-light);
+      box-shadow: 0 10px 22px rgba(24, 55, 43, 0.17);
+      transform: translateY(-1px);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .research-card {
+      position: relative;
+      min-height: 180px;
+      padding: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #fbfaf6;
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .research-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 24px;
+      width: 38px;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .research-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(24, 55, 43, 0.25);
+      box-shadow: 0 16px 32px rgba(26, 43, 34, 0.08);
+    }
+
+    .research-card h3 {
+      margin: 5px 0 14px;
+      font-size: 1rem;
+      line-height: 1.55;
+      font-weight: 400;
+    }
+
+    .research-card p {
+      margin: 0;
+      color: #68736d;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .status {
+      display: inline-flex;
+      margin-top: 14px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: var(--forest-light);
+      background: rgba(46, 90, 71, 0.08);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .publication-group + .publication-group { margin-top: 44px; }
+
+    .publication-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: publications;
+      border-top: 1px solid var(--line);
+    }
+
+    .publication-item {
+      position: relative;
+      padding: 26px 0 26px 48px;
+      border-bottom: 1px solid var(--line);
+      counter-increment: publications;
+    }
+
+    .publication-item::before {
+      content: "0" counter(publications);
+      position: absolute;
+      left: 0;
+      top: 28px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 0.76rem;
+    }
+
+    .publication-title {
+      margin: 0 0 7px;
+      font-family: var(--serif);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .publication-meta {
+      margin: 0 0 5px;
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+    }
+
+    .publication-venue {
+      margin: 0;
+      color: #748079;
+      font-size: 0.81rem;
+      font-style: italic;
+    }
+
+    .publication-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .gallery-intro {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    .gallery-intro h2 { margin-bottom: 0; }
+
+    .gallery-note {
+      max-width: 220px;
+      margin: 0 !important;
+      color: #748079 !important;
+      font-size: 0.8rem;
+      line-height: 1.55;
+      text-align: right;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-flow: dense;
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      grid-column: span 6;
+      aspect-ratio: 4 / 3;
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      background: #e8e5dd;
+      cursor: zoom-in;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(5) {
+      grid-row: span 2;
+      aspect-ratio: 4 / 5.5;
+    }
+
+    .gallery-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 500ms cubic-bezier(.2,.75,.2,1), filter 300ms ease;
+    }
+
+    .gallery-item:hover .gallery-photo { transform: scale(1.035); }
+
+    .gallery-placeholder {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      border: 1px dashed rgba(24, 55, 43, 0.22);
+      border-radius: inherit;
+      color: #6d7772;
+      background:
+        linear-gradient(135deg, rgba(24, 55, 43, 0.07), rgba(181, 138, 74, 0.11)),
+        #efede7;
+      text-align: center;
+    }
+
+    .gallery-item.is-empty {
+      cursor: default;
+    }
+
+    .gallery-item.is-empty .gallery-placeholder { display: grid; }
+
+    .placeholder-number {
+      display: block;
+      margin-bottom: 8px;
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--forest);
+    }
+
+    .placeholder-copy {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .gallery-item figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      z-index: 2;
+      padding: 36px 18px 16px;
+      color: white;
+      background: linear-gradient(to top, rgba(7, 19, 14, 0.78), transparent);
+      font-size: 0.8rem;
+      line-height: 1.45;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+
+    .gallery-item:not(.is-empty):hover figcaption,
+    .gallery-item:not(.is-empty):focus-within figcaption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-button {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
+    }
+
+    .gallery-item.is-empty .gallery-button { display: none; }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 28px;
+      border: 0;
+      background: rgba(8, 16, 12, 0.94);
+    }
+
+    .lightbox.open { display: grid; }
+
+    .lightbox-inner {
+      max-width: min(1100px, 100%);
+      max-height: 92vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 82vh;
+      border-radius: 12px;
+      box-shadow: 0 30px 100px rgba(0,0,0,0.45);
+    }
+
+    .lightbox figcaption {
+      margin-top: 12px;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.85rem;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 22px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      color: white;
+      background: rgba(255,255,255,0.07);
+      font: 300 1.6rem/1 var(--sans);
+      cursor: pointer;
+    }
+
+    footer {
+      width: min(1180px, calc(100% - 48px));
+      margin: 32px auto 0;
+      padding: 30px 0 38px;
+      color: #7a847f;
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .site-header, .header-inner { min-height: 330px; }
+      .hero-copy { padding-top: 52px; }
+      .layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 16px;
+      }
+      .profile-card { padding: 14px; }
+      .profile-copy { padding-inline: 4px; }
+      .research-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .header-inner,
+      .layout,
+      footer { width: min(100% - 28px, 1180px); }
+
+      .site-header, .header-inner { min-height: 300px; }
+      .header-inner { padding-top: 26px; }
+      .hero-copy { padding-top: 45px; }
+      .hero-copy h1 { font-size: clamp(3rem, 15vw, 4.6rem); }
+
+      .layout {
+        margin-top: -24px;
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        position: static;
+        display: grid;
+        grid-template-columns: 112px 1fr;
+        gap: 18px;
+        align-items: center;
+        border-radius: 22px;
+      }
+
+      .portrait-wrap { aspect-ratio: 1 / 1.08; }
+      .portrait-fallback { font-size: 2.4rem; }
+      .profile-copy { padding: 0; }
+      .contact-list { grid-column: 1 / -1; margin-top: 0; }
+      .content-shell { border-radius: 22px; }
+      .tab-bar { padding-inline: 12px; }
+      .tab-body { padding: 34px 24px 38px; }
+      .news-item { grid-template-columns: 1fr; gap: 5px; }
+      .cv-card { grid-template-columns: 1fr; }
+      .cv-card .button-link { justify-self: start; }
+      .gallery-intro { grid-template-columns: 1fr; gap: 12px; }
+      .gallery-note { max-width: none; text-align: left; }
+      .gallery-item,
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(5) {
+        grid-column: span 12;
+        grid-row: auto;
+        aspect-ratio: 4 / 3;
+      }
+      footer { text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">Management &amp; Strategy · The University of Hong Kong</p>
+      <div class="hero-copy">
+        <h1>Ze Zhang</h1>
+        <p>Institutions, sustainability, and emerging technologies.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="profile-card" aria-label="Profile and contact information">
+      <div class="portrait-wrap">
+        <span class="portrait-fallback" aria-hidden="true">ZZ</span>
+        <img class="portrait" src="./IMG_7571.JPG" alt="Portrait of Ze Zhang" onerror="this.style.display='none'">
+      </div>
+      <div class="profile-copy">
+        <h2>Ze ZHANG</h2>
+        <p class="role">Ph.D. Candidate</p>
+        <p class="institution">Management and Strategy<br>The University of Hong Kong</p>
+      </div>
+      <ul class="contact-list">
+        <li><a href="mailto:zezhang@connect.hku.hk">Email</a></li>
+        <li><a href="https://scholar.google.com/citations?user=U3rocXYAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+        <li><a href="https://www.linkedin.com/in/ze-zhang-971a76181/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+    </aside>
+
+    <section class="content-shell">
+      <nav class="tab-bar" role="tablist" aria-label="Main sections">
+        <button class="tab-btn active" id="tab-home" role="tab" aria-selected="true" aria-controls="home" data-tab="home">Home</button>
+        <button class="tab-btn" id="tab-cv" role="tab" aria-selected="false" aria-controls="cv" data-tab="cv" tabindex="-1">CV</button>
+        <button class="tab-btn" id="tab-research" role="tab" aria-selected="false" aria-controls="research" data-tab="research" tabindex="-1">Research</button>
+        <button class="tab-btn" id="tab-publication" role="tab" aria-selected="false" aria-controls="publication" data-tab="publication" tabindex="-1">Publications</button>
+        <button class="tab-btn" id="tab-mountains" role="tab" aria-selected="false" aria-controls="mountains" data-tab="mountains" tabindex="-1">Mountains</button>
+      </nav>
+
+      <div class="tab-body">
+        <section id="home" class="tab-content active" role="tabpanel" aria-labelledby="tab-home">
+          <p class="section-kicker">About</p>
+          <h2>Institutions, sustainability, and technologies.</h2>
+          <p class="lead">Hi, I am Ze Zhang (张泽), a Ph.D. candidate in Management and Strategy at The University of Hong Kong.</p>
+          <p>My research examines nonmarket strategy, informal institutions, and emerging technologies. I study how firms strategically respond to institutional pressures surrounding sustainability, with particular attention to how stakeholders and shareholders—empowered by religion, social norms, and other informal institutions—shape corporate governance and ESG outcomes.</p>
+          <p>I also investigate blockchain and cryptocurrencies, focusing on the forces that shape these technologies’ legitimacy and trustworthiness among regulators, investors, and the public.</p>
+          <p>Please feel free to get in touch if you would like to discuss my research.</p>
+
+          <hr class="rule">
+          <h3>Latest News</h3>
+          <div class="news-list">
+            <article class="news-item">
+              <time class="date" datetime="2026-07">Jul 2026</time>
+              <p>Received a third-round revise-and-resubmit request from <em>Academy of Management Journal</em> for the Rhetoric &amp; Bitcoin project.</p>
+            </article>
+            <article class="news-item">
+              <time class="date" datetime="2025-11">Nov 2025</time>
+              <p>Received a second-round revise-and-resubmit request from <em>Academy of Management Journal</em> for the Rhetoric &amp; Bitcoin project.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="cv" class="tab-content" role="tabpanel" aria-labelledby="tab-cv" hidden>
+          <p class="section-kicker">Curriculum Vitae</p>
+          <h2>Academic experience and appointments.</h2>
+          <div class="cv-card">
+            <div>
+              <h3>View my latest CV</h3>
+              <p>The document opens in a new browser tab.</p>
+            </div>
+            <a class="button-link" href="https://drive.google.com/file/d/1o_4quybbfva9-AiLYtM_yyP6LWMaPKz4/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open CV ↗</a>
+          </div>
+        </section>
+
+        <section id="research" class="tab-content" role="tabpanel" aria-labelledby="tab-research" hidden>
+          <p class="section-kicker">Research</p>
+          <h2>Informal institutions, sustainability, and technological change.</h2>
+          <p class="lead">My work connects nonmarket strategy with the institutional foundations of organizational behavior.</p>
+          <p>In my nonmarket strategy projects, I explore how stakeholders and shareholders shaped by religious logic influence firms’ risk-taking behavior and environmental performance. In my research on blockchain and cryptocurrencies, I examine how news media and political shocks shape the legitimacy and perceived trustworthiness of emerging technologies.</p>
+
+          <h3>Selected Projects</h3>
+          <div class="research-grid">
+            <article class="research-card">
+              <h3>Bitcoin as Gold? The Role of Rhetoric in Analogy Construction and Deconstruction</h3>
+              <p>With You (Willow) Wu and Shipeng Yan</p>
+              <span class="status">Third-round R&amp;R · AMJ</span>
+            </article>
+            <article class="research-card">
+              <h3>Strength of Weak Institution: How FinTech Empowers Carbon-Credit Policies</h3>
+              <span class="status">Job Market Paper</span>
+            </article>
+            <article class="research-card">
+              <h3>Trust in Crisis: Institutional Failures and the Rise of Decentralized Alternatives</h3>
+              <p>With Fabrice Lumineau and Shipeng Yan</p>
+            </article>
+            <article class="research-card">
+              <h3>Christian Institutional Investors and Corporate Decarbonization</h3>
+              <p>With Shipeng Yan and John Almandoz</p>
+            </article>
+            <article class="research-card">
+              <h3>Islamic Institutional Investors and Firm Risk-Taking Behaviors</h3>
+              <p>With Shipeng Yan</p>
+            </article>
+            <article class="research-card">
+              <h3>Climate Litigation and Corporate Decarbonization</h3>
+              <p>With Lizhen Wang and Shipeng Yan</p>
+            </article>
+            <article class="research-card">
+              <h3>Satellite Data of Corporate Carbon Emissions</h3>
+              <p>With Junhan Wang and Shipeng Yan</p>
+            </article>
+            <article class="research-card">
+              <h3>Confucianism and Firm Financial Misconduct</h3>
+            </article>
+          </div>
+        </section>
+
+        <section id="publication" class="tab-content" role="tabpanel" aria-labelledby="tab-publication" hidden>
+          <p class="section-kicker">Publications</p>
+          <h2>Published work and conference proceedings.</h2>
+
+          <div class="publication-group">
+            <h3>Book Chapters</h3>
+            <ol class="publication-list">
+              <li class="publication-item">
+                <p class="publication-title">Air Pollution and Investors’ Behavior: A Review of Recent Literature</p>
+                <p class="publication-meta"><strong>Ze Zhang</strong> and Shipeng Yan</p>
+                <p class="publication-venue">The Routledge Handbook of Green Finance, 2023</p>
+                <a class="publication-link" href="https://www.taylorfrancis.com/chapters/edit/10.4324/9781003345497-36/air-pollution-investors-behavior-ze-zhang-shipeng-yan" target="_blank" rel="noopener noreferrer">View publication ↗</a>
+              </li>
+            </ol>
+          </div>
+
+          <div class="publication-group">
+            <h3>Conference Proceedings</h3>
+            <ol class="publication-list">
+              <li class="publication-item">
+                <p class="publication-title">Bitcoin as Gold: The Role of Rhetoric</p>
+                <p class="publication-meta">You (Willow) Wu, Shipeng Yan, and <strong>Ze Zhang</strong></p>
+                <p class="publication-venue">Academy of Management Annual Meeting, 2024</p>
+                <a class="publication-link" href="https://journals.aom.org/doi/10.5465/AMPROC.2024.16112abstract" target="_blank" rel="noopener noreferrer">View proceeding ↗</a>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="mountains" class="tab-content" role="tabpanel" aria-labelledby="tab-mountains" hidden>
+          <p class="section-kicker">Beyond Research</p>
+          <div class="gallery-intro">
+            <h2>Notes from the mountains.</h2>
+            <p class="gallery-note">A visual journal of trails, summits, and the landscapes in between.</p>
+          </div>
+
+          <!-- Replace the six files in the "mountains" folder with your own photographs. -->
+          <div class="gallery-grid" aria-label="Mountaineering photo gallery">
+            <figure class="gallery-item">
+              <img class="gallery-photo" src="./mountains/mountain-01.jpg" alt="Mountain landscape on a hiking journey" loading="lazy">
+              <span class="gallery-placeholder"><span><span class="placeholder-number">01</span><span class="placeholder-copy">Add mountains/mountain-01.jpg</span></span></span>
+              <figcaption>Mountain journey · Add location and year</figcaption>
+              <button class="gallery-button" type="button" aria-label="Open mountain photograph 1"></button>
+            </figure>
+            <figure class="gallery-item">
+              <img class="gallery-photo" src="./mountains/mountain-02.jpg" alt="View from a mountain trail" loading="lazy">
+              <span class="gallery-placeholder"><span><span class="placeholder-number">02</span><span class="placeholder-copy">Add mountains/mountain-02.jpg</span></span></span>
+              <figcaption>On the trail · Add location and year</figcaption>
+              <button class="gallery-button" type="button" aria-label="Open mountain photograph 2"></button>
+            </figure>
+            <figure class="gallery-item">
+              <img class="gallery-photo" src="./mountains/mountain-03.jpg" alt="Hiking in a mountain landscape" loading="lazy">
+              <span class="gallery-placeholder"><span><span class="placeholder-number">03</span><span class="placeholder-copy">Add mountains/mountain-03.jpg</span></span></span>
+              <figcaption>High country · Add location and year</figcaption>
+              <button class="gallery-button" type="button" aria-label="Open mountain photograph 3"></button>
+            </figure>
+            <figure class="gallery-item">
+              <img class="gallery-photo" src="./mountains/mountain-04.jpg" alt="Distant mountain summit" loading="lazy">
+              <span class="gallery-placeholder"><span><span class="placeholder-number">04</span><span class="placeholder-copy">Add mountains/mountain-04.jpg</span></span></span>
+              <figcaption>Toward the summit · Add location and year</figcaption>
+              <button class="gallery-button" type="button" aria-label="Open mountain photograph 4"></button>
+            </figure>
+            <figure class="gallery-item">
+              <img class="gallery-photo" src="./mountains/mountain-05.jpg" alt="Mountain light during a hike" loading="lazy">
+              <span class="gallery-placeholder"><span><span class="placeholder-number">05</span><span class="placeholder-copy">Add mountains/mountain-05.jpg</span></span></span>
+              <figcaption>Mountain light · Add location and year</figcaption>
+              <button class="gallery-button" type="button" aria-label="Open mountain photograph 5"></button>
+            </figure>
+            <figure class="gallery-item">
+              <img class="gallery-photo" src="./mountains/mountain-06.jpg" alt="A quiet scene in the mountains" loading="lazy">
+              <span class="gallery-placeholder"><span><span class="placeholder-number">06</span><span class="placeholder-copy">Add mountains/mountain-06.jpg</span></span></span>
+              <figcaption>Quiet elevation · Add location and year</figcaption>
+              <button class="gallery-button" type="button" aria-label="Open mountain photograph 6"></button>
+            </figure>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 Ze Zhang · The University of Hong Kong</footer>
+
+  <dialog class="lightbox" aria-label="Photograph preview">
+    <button class="lightbox-close" type="button" aria-label="Close photograph preview">×</button>
+    <figure class="lightbox-inner">
+      <img src="" alt="">
+      <figcaption></figcaption>
+    </figure>
+  </dialog>
+
+  <script>
+    (() => {
+      const tabs = [...document.querySelectorAll('[role="tab"]')];
+      const panels = [...document.querySelectorAll('[role="tabpanel"]')];
+      const knownTabs = new Set(tabs.map(tab => tab.dataset.tab));
+
+      function activateTab(id, updateHash = true) {
+        if (!knownTabs.has(id)) id = 'home';
+
+        tabs.forEach(tab => {
+          const active = tab.dataset.tab === id;
+          tab.classList.toggle('active', active);
+          tab.setAttribute('aria-selected', String(active));
+          tab.tabIndex = active ? 0 : -1;
+        });
+
+        panels.forEach(panel => {
+          const active = panel.id === id;
+          panel.classList.toggle('active', active);
+          panel.hidden = !active;
+        });
+
+        if (updateHash) history.replaceState(null, '', `#${id}`);
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateTab(tab.dataset.tab));
+        tab.addEventListener('keydown', event => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          tabs[next].focus();
+          activateTab(tabs[next].dataset.tab);
+        });
+      });
+
+      const initialTab = location.hash.slice(1);
+      activateTab(knownTabs.has(initialTab) ? initialTab : 'home', false);
+
+      const lightbox = document.querySelector('.lightbox');
+      const lightboxImage = lightbox.querySelector('img');
+      const lightboxCaption = lightbox.querySelector('figcaption');
+
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const image = item.querySelector('.gallery-photo');
+        const button = item.querySelector('.gallery-button');
+
+        image.addEventListener('error', () => {
+          image.hidden = true;
+          item.classList.add('is-empty');
+        });
+
+        if (!image.complete || image.naturalWidth !== 0) {
+          button.addEventListener('click', () => {
+            lightboxImage.src = image.currentSrc || image.src;
+            lightboxImage.alt = image.alt;
+            lightboxCaption.textContent = item.querySelector('figcaption').textContent;
+            if (typeof lightbox.showModal === 'function') lightbox.showModal();
+            lightbox.classList.add('open');
+          });
+        }
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        if (lightbox.open) lightbox.close();
+        lightboxImage.src = '';
+      }
+
+      lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      lightbox.addEventListener('cancel', event => {
+        event.preventDefault();
+        closeLightbox();
+      });
+    })();
+  </script>
+</body>
+</html>
